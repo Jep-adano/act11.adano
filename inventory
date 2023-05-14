@@ -1,2 +1,2 @@
 [Workstation]
-192.168.56.102
+localhost ansible_connection=local

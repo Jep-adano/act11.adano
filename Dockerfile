@@ -1,5 +1,5 @@
 FROM ubuntu
-MAINTAINER jmaducal <qjbadano@tip.edu.ph>
+MAINTAINER adano  <qjbadano@tip.edu.ph>
 
 # Skip prompts
 ARG DEBIAN_FRONTEND=noninteractive
