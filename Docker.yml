@@ -5,5 +5,5 @@
    tasks:
 
    - name: Install and Build Dockerfile
-     command: docker build -t httpd 
+     command: docker build -t mariadb 
      when: ansible_distribution == "Ubuntu"
