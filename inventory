@@ -1,3 +1,8 @@
-[Workstation]
+[db_servers]
 192.168.56.102
 
+[web_servers]
+192.168.56.103
+
+[CentOS]
+192.168.56.101

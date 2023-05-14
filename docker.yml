@@ -1,0 +1,51 @@
+---
+
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: Ubuntu Update
+    tags: always
+    apt:
+      upgrade: dist
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+  - name: CentOS Update
+    tags: always
+    yum:
+      update_only: yes
+      update_cache: yes
+    when: ansible_distribution == "CentOS"
+
+- hosts: db_servers
+  become: true
+  tasks:
+
+  - name: Install Docker (Ubuntu)
+    apt:
+      name:
+        - docker.io
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Install Docker (CentOS)
+    command: install docker --classic
+    when: ansible_distribution == "CentOS"
+
+- hosts: web_servers
+  become: true
+  tasks:
+
+  - name: Install Docker (Ubuntu)
+    apt:
+      name:
+        - docker.io
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Install Docker (CentOS)
+    command: snap install docker --classic
+    when: ansible_distribution == "CentOS"
